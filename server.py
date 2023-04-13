@@ -12,12 +12,12 @@ def login():
         username = login_data["username"]
         password = login_data["password"]
         # Tu wpisz kod logiki logowania
-        if username == "admin" and password == "admin123":
-            return {"message": "Success"}
+        if username == "admin" and password == "flask":
+            return jsonify({"message": "Success"}), 200
         else:
-            return {"message": "Failure"}
+            return jsonify({"message": "Failure"}), 401
     else:
-        return {"test": "test"}
-
+        return jsonify({"server status": "Flask running"}), 200
+    
 if __name__ == "__main__":
     app.run(debug=True)
